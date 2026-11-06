@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page setup: character set, phone scaling, title and search description -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ariana Gajowniczek | Managerial Economics, UMass Amherst</title>
+  <meta name="description" content="Ariana Gajowniczek: B.S. in Managerial Economics, minor in Information Technology, University of Massachusetts Amherst, Class of 2027.">
+  <meta name="theme-color" content="#F6F6F3">
+  <!-- How the link looks when shared (LinkedIn, messages) -->
+  <meta property="og:title" content="Ariana Gajowniczek">
+  <meta property="og:description" content="Managerial Economics, UMass Amherst, Class of 2027.">
+  <meta property="og:type" content="website">
+  <!-- Tab icon (relative path so it works on GitHub Pages) -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!-- Fonts from Google Fonts: Source Serif 4 (headings) and Public Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <!-- Shared styles for every page -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site menu: same on every page; aria-current marks where you are -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Ariana Gajowniczek</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Hero band: soft blue background; name and intro on the left, portrait on the right -->
+  <section class="hero-band" aria-labelledby="hero-title">
+    <div class="wrap hero">
+      <div class="hero-text">
+        <h1 id="hero-title">Ariana Gajowniczek</h1>
+        <p class="degree">B.S. in Managerial Economics, minor in Information Technology · University of Massachusetts Amherst · Class of 2027</p>
+        <!-- Intro: built from Ariana's cover letters (QRAL, Accuracy) and résumé facts, at her request -->
+        <p class="intro">I like taking a question that seems intuitive and testing whether the evidence actually supports it. Across my experience in finance, investment evaluation and market research, I've focused on finding what matters in the data and making it clear enough to act on. I'm looking for my next step in financial services, wealth management, investment banking or supply chain management.</p>
+        <p class="actions">
+          <a class="button" href="resume.html">View résumé</a>
+          <a class="button ghost" href="contact.html">Get in touch</a>
+        </p>
+      </div>
+      <!-- Portrait (photo.jpg in this folder) with an offset navy block behind it -->
+      <figure class="portrait">
+        <img src="photo.jpg" width="800" height="1000" alt="Portrait of Ariana Gajowniczek">
+      </figure>
+    </div>
+  </section>
+
+  <main class="wrap">
+
+    <!-- At a glance: key facts in a term-sheet strip, placed first so recruiters see it without scrolling -->
+    <aside class="term-sheet glance" aria-labelledby="ts-title">
+      <p class="ts-title" id="ts-title">At a glance</p>
+      <dl>
+        <div class="row"><dt>Degree</dt><dd>B.S., Managerial Economics</dd></div>
+        <div class="row"><dt>Minor</dt><dd>Information Technology</dd></div>
+        <div class="row"><dt>School</dt><dd>University of Massachusetts Amherst</dd></div>
+        <div class="row"><dt>Graduating</dt><dd>May 2027</dd></div>
+        <div class="row"><dt>Seeking</dt><dd>Roles in supply chain management, financial services, wealth management and investment banking</dd></div>
+        <div class="row"><dt>Tools</dt><dd>Excel, Python, SAS, SQL, R, Stata, Power BI</dd></div>
+      </dl>
+    </aside>
+
+
+    <!-- Highlights: three facts copied from the résumé, numbers first -->
+    <section class="section" aria-labelledby="hl-title">
+      <h2 id="hl-title">Selected experience</h2>
+      <ul class="highlights">
+        <li>
+          <span class="fig">$100M+</span>
+          Reconciled multi-million-dollar payment records for projects of up to $100M+, and attended bond financing meetings with underwriters on deal structure and pricing.
+          <span class="where">Finance Fellow, Massachusetts State Treasury (MSBA), summer 2026</span>
+        </li>
+        <li>
+          <span class="fig">50+</span>
+          Evaluated student investment portfolios on DCF/comps valuation and thesis quality, and scored risk-adjusted performance (Sharpe ratio, alpha).
+          <span class="where">Investment Pitch Judge, Larson International Group, 2024–2025</span>
+        </li>
+        <li>
+          <span class="fig">3,744</span>
+          Rows in a sales panel (24 markets, 156 weeks) cleaned and analyzed to estimate price elasticity, with recommendations written for a non-technical executive.
+          <span class="where">Demand and Pricing Analysis, ResEcon 428, fall 2026</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Target fields, full width -->
+    <section class="section">
+
+      <!-- Target fields: each opens (no JavaScript) to show the matching experience -->
+      <div aria-labelledby="fields-title">
+        <h2 id="fields-title">Where my experience fits</h2>
+        <p class="page-intro">Open a field to see the related work.</p>
+        <div class="fields">
+        <details>
+          <summary>Investment banking</summary>
+          <div class="detail">
+            <p>Attended bond financing meetings with underwriters on deal structure and pricing at the Massachusetts State Treasury.</p>
+            <p>Industry study of U.S. investment banking and securities intermediation (NAICS 523150), in progress. <a href="projects.html">See Projects</a></p>
+          </div>
+        </details>
+        <details>
+          <summary>Financial services</summary>
+          <div class="detail">
+            <p>Reconciled payment records for projects of up to $100M+ and audited 30+ reimbursement submissions for accuracy and eligibility.</p>
+            <p class="kicker">Coursework: Financial Accounting, Econometrics, Industrial Organization</p>
+          </div>
+        </details>
+        <details>
+          <summary>Wealth management</summary>
+          <div class="detail">
+            <p>Evaluated 50+ student investment portfolios on DCF/comps valuation and thesis quality; scored risk-adjusted performance (Sharpe ratio, alpha); ranked teams to select finalists.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Supply chain management</summary>
+          <div class="detail">
+            <p>Cleaned a 3,744-row sales panel across 24 markets and 156 weeks and estimated price elasticity by log-log regression.</p>
+            <p class="kicker">Tools: Excel, SQL, Power BI, Python, R</p>
+          </div>
+        </details>
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: same on every page; email only, no phone or address -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Ariana Gajowniczek · <a href="mailto:agajowniczek@umass.edu">agajowniczek@umass.edu</a></span>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* =========================================================
+   styles.css — shared by every page of Ariana's site
+   Order: 1) design tokens  2) base  3) layout  4) components
+   ========================================================= */
+
+/* ---------- 1. Design tokens (change colors/sizes here only) ---------- */
+:root {
+  --ground: #F7F7F4;   /* page background: soft off-white */
+  --band: #E4ECF4;     /* pale blue: hero band and alternate sections (adds warmth without loudness) */
+  --surface: #FFFFFF;  /* white cards that sit on the off-white ground */
+  --ink: #1F2329;      /* main text: dark charcoal (high contrast) */
+  --muted: #56606B;    /* secondary text: slate gray (passes 4.5:1 on white and on the blue band) */
+  --accent: #1E3A5F;   /* deep navy: links, buttons, footer */
+  --gold: #B08D57;     /* soft gold: thin decorative rules only (never body text) */
+  --rule: #D6D3CC;     /* thin divider lines */
+
+  --serif: "Source Serif 4", Georgia, serif;           /* headings */
+  --sans: "Public Sans", "Helvetica Neue", Arial, sans-serif; /* body: the U.S. government's typeface */
+
+  /* five type sizes, clearly far apart */
+  --s-1: 0.875rem;  /* small labels */
+  --s0: 1.0625rem;  /* body */
+  --s1: 1.375rem;   /* card titles */
+  --s2: 2rem;       /* page titles */
+  --s3: clamp(2.5rem, 6vw, 4rem); /* home headline, scales with screen */
+
+  --wrap: 68rem;    /* max content width */
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }   /* sizes include padding */
+html { -webkit-text-size-adjust: 100%; }               /* stop iPhone auto-zooming text */
+body {
+  margin: 0;                                           /* remove browser default gap */
+  background: var(--ground);                           /* page color */
+  color: var(--ink);                                   /* text color */
+  font: 400 var(--s0)/1.65 var(--sans);                /* readable body text */
+}
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0 0 0.5em; }
+h1 { font-size: var(--s2); }
+h2 { font-size: var(--s1); }
+h3 { font-size: var(--s0); font-family: var(--sans); }
+p { margin: 0 0 1em; max-width: 40em; }               /* keep lines short enough to read */
+a { color: var(--accent); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }            /* small, calm hover feedback */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } /* keyboard users can see focus */
+::selection { background: var(--accent); color: var(--ground); }          /* themed text highlight */
+ul { padding-left: 1.2em; }
+
+/* ---------- 3. Layout ---------- */
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.25rem; } /* centered column with side padding */
+
+.site-header { border-bottom: 1px solid var(--rule); }  /* thin line under the menu */
+.site-header .wrap {
+  display: flex; flex-wrap: wrap;                       /* menu wraps on phones */
+  align-items: center; justify-content: space-between;
+  gap: 0.5rem 1.5rem; padding-top: 1rem; padding-bottom: 1rem;
+}
+.brand { font-family: var(--serif); font-weight: 600; font-size: var(--s1); color: var(--ink); text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; }
+.nav a {
+  display: inline-block; padding: 0.6rem 0;            /* 44px-tall tap target */
+  color: var(--ink); text-decoration: none; font-size: var(--s-1); font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { border-bottom-color: var(--rule); }
+.nav a[aria-current="page"] { border-bottom-color: var(--accent); color: var(--accent); } /* marks the current page */
+
+main.wrap { padding-top: 3rem; padding-bottom: 4rem; } /* main also has .wrap, so set top/bottom only and keep its side padding */
+.section { margin-top: 3.5rem; }                       /* space between sections */
+.lede { font-size: var(--s1); font-family: var(--serif); color: var(--muted); line-height: 1.4; max-width: 34em; }
+.page-intro { color: var(--muted); }
+
+.two-col { display: grid; gap: 2.5rem; }               /* one column on phones */
+@media (min-width: 48rem) {
+  .two-col { grid-template-columns: 1fr 1fr; align-items: start; } /* two columns from tablet up */
+  .two-col.wide-left { grid-template-columns: 1.4fr 1fr; }
+}
+
+.site-footer { background: var(--accent); color: #D9E2EC; font-size: var(--s-1); margin-top: 2rem; } /* navy footer anchors the page */
+.site-footer a { color: #FFFFFF; }
+.site-footer .wrap { padding-top: 1.5rem; padding-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+
+/* ---------- 4. Components ---------- */
+
+/* Home headline */
+
+.actions { margin-top: 1.5rem; }                     /* space above the résumé button */
+.hero .degree { font-size: var(--s0); color: var(--muted); max-width: 36em; }
+
+/* Term sheet: label/value rows, styled after a bond deal summary */
+.term-sheet { background: var(--surface); padding: 1.5rem 1.5rem 0.5rem; border-top: 3px solid var(--gold); } /* white card, gold top edge */
+.term-sheet .ts-title {
+  font-family: var(--serif); font-size: var(--s1); margin: 0 0 0.75rem;
+  padding-bottom: 0.75rem; border-bottom: 2px solid var(--accent);  /* navy rule like a printed term sheet */
+}
+.term-sheet dl { margin: 0; }
+.term-sheet .row {
+  display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem;      /* fixed label column, value fills the rest */
+  padding: 0.7rem 0; border-bottom: 1px solid var(--rule);
+}
+.term-sheet .row:last-child { border-bottom: 0; }
+.term-sheet dt { font-size: var(--s-1); color: var(--muted); font-weight: 500; }
+.term-sheet dd { margin: 0; }
+@media (max-width: 26rem) { .term-sheet .row { grid-template-columns: 1fr; gap: 0.1rem; } } /* stack rows on narrow phones */
+
+/* Highlights list: number-led facts from the résumé */
+.highlights { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
+@media (min-width: 48rem) { .highlights { grid-template-columns: repeat(3, 1fr); } }
+.highlights li { background: var(--surface); border-top: 3px solid var(--gold); padding: 1.25rem 1.25rem 1.4rem; } /* white cards with a gold top edge */
+.highlights .fig { display: block; font-family: var(--serif); font-size: var(--s2); line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.highlights .where { display: block; font-size: var(--s-1); color: var(--muted); margin-top: 0.5rem; }
+
+/* Target fields: native <details> opens without JavaScript */
+.fields { border-top: 1px solid var(--rule); }
+.fields details { border-bottom: 1px solid var(--rule); }
+.fields summary {
+  cursor: pointer; list-style: none;                     /* hide the default triangle */
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem 0; min-height: 44px; font-family: var(--serif); font-size: var(--s1);
+}
+.fields summary::-webkit-details-marker { display: none; } /* hide triangle in Safari */
+.fields summary::after { content: "+"; font-family: var(--sans); color: var(--accent); font-size: var(--s1); }
+.fields details[open] summary::after { content: "–"; }  /* plus becomes minus when open */
+.fields .detail { padding: 0 0 1.25rem; color: var(--ink); }
+.fields .detail p { margin: 0 0 0.5em; }
+.fields .detail .kicker { color: var(--muted); font-size: var(--s-1); }
+
+/* Placeholder marker: easy to spot, easy to find (search the code for [PLACEHOLDER]) */
+.ph {
+  background: repeating-linear-gradient(135deg, #EFEDE8 0 10px, #E7E5E0 10px 20px); /* striped = clearly unfinished */
+  border: 1px dashed var(--muted); padding: 1rem 1.1rem; color: var(--muted);
+}
+.ph p { margin: 0 0 0.4em; }
+.ph p:last-child { margin: 0; }
+.tag { font-weight: 600; color: var(--ink); }           /* the [PLACEHOLDER] word itself */
+
+/* Simple lists on About */
+.plain { list-style: none; padding: 0; margin: 0; }
+.plain li { padding: 0.55rem 0; border-bottom: 1px solid var(--rule); }
+.plain li:last-child { border-bottom: 0; }
+.meta { color: var(--muted); font-size: var(--s-1); display: block; }
+
+/* Project cards */
+.projects { display: grid; gap: 1.5rem; }
+.card { background: var(--surface); padding: 1.5rem; }
+.card.feature { border-top: 3px solid var(--accent); }  /* the industry study leads */
+.card h2 { margin-bottom: 0.25em; }
+.card .meta { margin-bottom: 1rem; }
+.card ul { margin: 0 0 0.5rem; }
+.card .links { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.pending {                                               /* a link that is not live yet: visibly not clickable */
+  display: inline-block; padding: 0.6rem 0.9rem; border: 1px dashed var(--muted);
+  color: var(--muted); font-size: var(--s-1);
+}
+
+/* Contact list */
+.contact-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.contact-list li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.contact-list .label { color: var(--muted); font-size: var(--s-1); }
+@media (max-width: 26rem) { .contact-list li { grid-template-columns: 1fr; gap: 0.2rem; } }
+
+.button {                                                /* the one real button style */
+  display: inline-block; background: var(--accent); color: var(--ground);
+  padding: 0.75rem 1.2rem; text-decoration: none; font-weight: 500; font-size: var(--s-1);
+}
+.button:hover { background: var(--ink); }
+.button.ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); margin-left: 0.5rem; } /* second, quieter button */
+.button.ghost:hover { background: var(--accent); color: var(--ground); }
+
+/* ---------- Hero band (Home) ---------- */
+.hero-band { background: var(--band); border-bottom: 1px solid #CFDBE7; }  /* pale blue band behind name + photo */
+.hero { display: grid; gap: 2.5rem; padding-top: 3rem; padding-bottom: 3.5rem; align-items: center; }
+@media (min-width: 48rem) { .hero { grid-template-columns: 2.4fr 1fr; padding-top: 4rem; padding-bottom: 4.5rem; } }
+.hero h1 { font-size: var(--s3); margin-bottom: 0.3em; letter-spacing: -0.01em; color: var(--accent); }
+.hero .intro { font-family: var(--serif); font-size: var(--s1); line-height: 1.45; color: var(--ink); max-width: 44em; }
+.hero-band + main.wrap { padding-top: 0; }                  /* the band already gives top spacing */
+
+/* Portrait: photo with an offset navy block behind it (a real offset, not a blurry shadow) */
+.portrait { margin: 0 1rem 1rem 0; position: relative; max-width: 13rem; width: 100%; justify-self: center; }
+.portrait::before { content: ""; position: absolute; inset: 1rem -1rem -1rem 1rem; background: var(--accent); } /* block shifted down-right */
+.portrait img { position: relative; display: block; width: 100%; height: auto; border: 6px solid var(--surface); }
+
+@media (min-width: 48rem) { .portrait { max-width: 16rem; } } /* bigger photo on wider screens */
+
+/* At a glance strip: sits right under the hero, overlapping its bottom edge */
+.glance { position: relative; margin-top: -1.5rem; box-shadow: 0 1px 0 var(--rule); }
+.glance dl { display: grid; gap: 0 2rem; }
+.glance .ts-title { max-width: none; } /* navy rule runs the full width of the strip */
+.glance .row { grid-template-columns: 1fr; gap: 0.15rem; align-content: start; border-bottom: 1px solid var(--rule); } /* label above value */
+@media (min-width: 48rem) {
+  .glance { margin-top: -2.5rem; }
+  .glance dl { grid-template-columns: repeat(3, 1fr); }      /* three facts per line on wider screens */
+  .glance .row:nth-last-child(-n+3) { border-bottom: 0; }    /* no line under the last row of facts */
+  .glance .row:last-child { grid-column: span 1; }
+}
+
+/* Cards: white on the off-white ground with a navy or gold top edge */
+.card { background: var(--surface); border: 1px solid var(--rule); }
+.card.feature { border-top: 3px solid var(--accent); }
+
+/* Respect people who turn off motion (there is very little, but just in case) */
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

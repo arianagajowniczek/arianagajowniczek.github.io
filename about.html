@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head setup as index.html; only the title and description change -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Ariana Gajowniczek</title>
+  <meta name="description" content="About Ariana Gajowniczek: education, coursework, skills and activities.">
+  <meta name="theme-color" content="#F6F6F3">
+  <meta property="og:title" content="About | Ariana Gajowniczek">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site menu -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Ariana Gajowniczek</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>About</h1>
+
+    <!-- Intro + photo side by side on wider screens -->
+    <section class="two-col wide-left">
+      <div>
+        <!-- Your About text: yours to write (CLAUDE.md rule) -->
+        <div class="ph">
+          <p><span class="tag">[PLACEHOLDER]</span> About me, one short paragraph in your own words.</p>
+          <p>Prompt: why managerial economics and IT, what got you interested in finance (for example, the bond financing meetings at the Treasury), and what you want to do next.</p>
+        </div>
+      </div>
+
+      <!-- Portrait (photo.jpg in this folder), same offset frame as Home -->
+      <figure class="portrait">
+        <img src="photo.jpg" width="800" height="1000" alt="Portrait of Ariana Gajowniczek" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- Education: facts from the résumé -->
+    <section class="section two-col">
+      <div>
+        <h2>Education</h2>
+        <ul class="plain">
+          <li>
+            <strong>University of Massachusetts Amherst</strong>
+            <span class="meta">B.S. in Managerial Economics · Minor in Information Technology · Expected May 2027</span>
+          </li>
+        </ul>
+        <h3 class="section">Relevant courses</h3>
+        <ul class="plain">
+          <li>Econometrics</li>
+          <li>Industrial Organization</li>
+          <li>Financial Accounting</li>
+          <li>AI in Economics</li>
+        </ul>
+      </div>
+
+      <!-- Skills and activities: facts from the résumé -->
+      <div>
+        <h2>Skills</h2>
+        <ul class="plain">
+          <li>Excel</li>
+          <li>Python</li>
+          <li>SAS</li>
+          <li>SQL</li>
+          <li>R</li>
+          <li>Stata</li>
+          <li>Power BI</li>
+        </ul>
+        <h3 class="section">Activities</h3>
+        <ul class="plain">
+          <li>Women in Business Club, Isenberg School of Management <span class="meta">September 2024 – present</span></li>
+          <li>Professionalism in Applied Economics Society, UMass Amherst <span class="meta">September 2025 – present</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Ariana Gajowniczek · <a href="mailto:agajowniczek@umass.edu">agajowniczek@umass.edu</a></span>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+</body>
+</html>
